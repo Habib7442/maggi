@@ -14,18 +14,18 @@ export default function Home() {
     <SmoothScroll>
       <main className="min-h-screen selection:bg-brand-red selection:text-white">
         {/* Navigation */}
-        <nav className="fixed top-0 w-full p-6 md:p-10 flex justify-between items-center z-50">
+        <nav className="fixed top-0 w-full p-6 md:p-10 flex justify-between items-center z-50 transition-all">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl md:text-3xl font-black tracking-tighter text-brand-light"
+            className="text-xl md:text-3xl font-black tracking-tighter text-brand-light"
           >
             MAGGI.
           </motion.div>
-          <div className="flex gap-8 items-center text-brand-light/60 font-black text-[10px] uppercase tracking-[0.3em]">
-            <button className="hover:text-brand-red transition-colors">Our Story</button>
-            <button className="hover:text-brand-red transition-colors">Flavors</button>
-            <button className="bg-brand-red text-white px-6 py-2 rounded-full hover:scale-110 transition-transform">
+          <div className="flex gap-4 md:gap-8 items-center text-brand-light/60 font-black text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em]">
+            <button className="hidden sm:block hover:text-brand-red transition-colors">Our Story</button>
+            <button className="hidden sm:block hover:text-brand-red transition-colors">Flavors</button>
+            <button className="bg-brand-red text-white px-4 py-2 md:px-6 md:py-2 rounded-full hover:scale-110 transition-all text-[8px] md:text-[10px]">
               Order Now
             </button>
           </div>
@@ -48,20 +48,21 @@ export default function Home() {
           {/* Subtle Red Ambient Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-red/10 rounded-full blur-[120px] pointer-events-none" />
           
-          <div className="relative z-10 flex flex-col items-center pointer-events-none">
+          <div className="relative z-10 flex flex-col items-center pointer-events-none px-6 w-full">
             <motion.h1 
               initial={{ scale: 1.1, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
-              className="text-[12vw] font-[950] text-white leading-none tracking-tighter text-center"
+              className="text-[16vw] md:text-[12vw] font-[950] text-white leading-[0.85] md:leading-none tracking-tighter text-center"
             >
-              IT&apos;S <span className="text-brand-red sauce-glow">DIFFERENT</span>
+              IT&apos;S <br className="block md:hidden" />
+              <span className="text-brand-red sauce-glow">DIFFERENT</span>
             </motion.h1>
             {/* <motion.h2 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 1 }}
-              className="text-[4vw] text-brand-yellow font-black italic mt-4 uppercase tracking-widest"
+              className="text-[6vw] md:text-[4vw] text-brand-yellow font-black italic mt-4 uppercase tracking-widest text-center"
             >
               Maggi Hot & Sweet
             </motion.h2> */}
@@ -71,17 +72,17 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
-            className="absolute bottom-10 left-10 max-w-xs z-20"
+            className="absolute bottom-6 left-6 md:bottom-10 md:left-10 max-w-[150px] md:max-w-xs z-20"
           >
-            <p className="text-brand-light/40 font-black uppercase tracking-[0.2em] text-[8px] mb-4">
+            <p className="text-brand-light/40 font-black uppercase tracking-[0.2em] text-[7px] md:text-[8px] mb-4">
               Bold flavors from the kitchens of India.
             </p>
-            <div className="w-12 h-[1px] bg-brand-red" />
+            <div className="w-8 md:w-12 h-[1px] bg-brand-red" />
           </motion.div>
 
-          <div className="absolute bottom-10 right-10 flex flex-col items-end gap-2 text-brand-light/20 font-black text-[10px] uppercase tracking-widest">
+          <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex flex-col items-end gap-2 text-brand-light/20 font-black text-[8px] md:text-[10px] uppercase tracking-widest">
             <span>Scroll</span>
-            <div className="w-[1px] h-20 bg-gradient-to-b from-brand-red to-transparent" />
+            <div className="w-[1px] h-12 md:h-20 bg-gradient-to-b from-brand-red to-transparent" />
           </div>
         </section>
 
@@ -284,7 +285,7 @@ export default function Home() {
               </button>
             </motion.div>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {[
                 { name: "Fire-Roasted", sub: "Chilies", icon: "🌶️", color: "brand-dark", text: "white", img: "/assets/real_spicy_real_sweet/fire_roasted_chillies.png" },
                 { name: "Sun-Ripened", sub: "Tomatoes", icon: "🍅", color: "brand-yellow", text: "brand-dark", img: "/assets/real_spicy_real_sweet/sun_rippened_tomatoes.png" },
@@ -297,7 +298,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ y: -15, rotate: i % 2 === 0 ? -2 : 2 }}
-                  className={`h-72 rounded-2xl bg-${item.color} p-8 flex flex-col justify-between shadow-xl relative overflow-hidden group border border-white/10`}
+                  className={`h-80 md:h-72 rounded-2xl bg-${item.color} p-8 flex flex-col justify-between shadow-xl relative overflow-hidden group border border-white/10`}
                 >
                   <Image 
                     src={item.img} 
@@ -308,11 +309,11 @@ export default function Home() {
                   <div className={`absolute inset-0 bg-gradient-to-t ${item.color === 'brand-dark' ? 'from-black/80' : item.color === 'brand-red' ? 'from-black/60' : 'from-brand-yellow/80'} to-transparent z-10`} />
                   
                    {/* Card Numbering */}
-                  <span className={`absolute top-6 right-6 text-[40px] font-black opacity-20 text-${item.text} z-20`}>0{i+1}</span>
+                  <span className={`absolute top-4 right-4 md:top-6 md:right-6 text-[30px] md:text-[40px] font-black opacity-20 text-${item.text} z-20`}>0{i+1}</span>
                   
-                  <div className="text-4xl group-hover:scale-125 transition-transform duration-500 origin-left relative z-20">{item.icon}</div>
+                  <div className="text-3xl md:text-4xl group-hover:scale-125 transition-transform duration-500 origin-left relative z-20">{item.icon}</div>
                   
-                  <div className={`font-[950] text-2xl uppercase leading-none tracking-tighter text-${item.text} relative z-20`}>
+                  <div className={`font-[950] text-3xl md:text-2xl uppercase leading-none tracking-tighter text-${item.text} relative z-20`}>
                     {item.name}<br/>
                     <span className={item.color === 'brand-red' ? 'text-white/60' : item.color === 'brand-dark' ? 'text-brand-red' : 'text-brand-red'}>
                       {item.sub}
